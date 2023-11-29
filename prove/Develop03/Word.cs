@@ -22,6 +22,15 @@ public class Word
 
     public string GetWord()
     {
-        return _word;
+        if (_isHidden)
+        {
+            // Calculate the length of the word designated as hidden
+            // and create a string of underscores with the same length
+            return new string('_', _word.Length);
+        }
+        else
+        {
+            return _word;
+        }
     }
 }

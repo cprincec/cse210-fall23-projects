@@ -93,26 +93,10 @@ public class Scripture
         // This list is used to store string of text of scripture and its reference
         List<string> textsAsStrings = new List<string>();
         textsAsStrings.Add(_reference);
+        
         foreach (Word word in _texts)
         {
-            if (word.IsHidden())
-            {
-                // calculate the length of a word designated as hidden
-                // this allows us to know how many underscores to replace the word with
-                int wordLength = word.GetWord().Length;
-                string hidden = "";
-
-                for (int i = 0; i < wordLength; i++)
-                {
-                    hidden += "_";
-                }
-                textsAsStrings.Add(hidden);
-            }
-            else
-            {
-                // Console.Write("No hidden word here!");
-                textsAsStrings.Add(word.GetWord());
-            }
+            textsAsStrings.Add(word.GetWord());
         }
         return string.Join(" ", textsAsStrings);
     }
